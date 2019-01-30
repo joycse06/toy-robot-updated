@@ -1,0 +1,31 @@
+---
+AllCops:
+  TargetRubyVersion: 2.5
+  Include:
+  - lib/**/*.rb
+  - spec/**/*.rb
+  Exclude:
+  - bin/**/*
+  - coverage/**/*
+  - data/**/*
+  - log/**/*
+  - tmp/**/*
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    "%w": "[]"
+RSpec/ExampleLength:
+  Max: 10
+require:
+- rubocop-rspec
+RSpec/MultipleExpectations:
+  Max: 10
+RSpec/NestedGroups:
+  Max: 10
+RSpec/MessageExpectation:
+  Enabled: false
