@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'dry-types'
+require 'dry/monads/result'
 require 'toy_robot/constants'
 
 module ToyRobot
@@ -22,10 +23,12 @@ module ToyRobot
       'REPORT'
     )
 
+    TurnIdentifiers = Types::Strict::String.enum('RIGHT', 'LEFT')
+
     # valid axis values values 0..TABLE_LENGTH{X,Y}
     XAxisValue = Types::Strict::Integer
-      .constrained(gteq: 0, lteq: Constants::TABLE_LENGTH_X)
+      .constrained(gteq: 0, lt: Constants::TABLE_WIDTH)
     YAxisValue = Types::Strict::Integer
-      .constrained(gteq: 0, lteq: Constants::TABLE_LENGTH_Y)
+      .constrained(gteq: 0, lt: Constants::TABLE_LENGTH)
   end
 end

@@ -2,7 +2,7 @@
 
 module ToyRobot
   module Constants
-    TABLE_LENGTH_X = 5
-    TABLE_LENGTH_Y = 5
+    TABLE_WIDTH = 5
+    TABLE_LENGTH = 5
   end
 end
