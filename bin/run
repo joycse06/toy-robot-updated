@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'pathname'
+require 'pry'
+
+# Add lib to ruby load path
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+
+require 'toy_robot'
+require 'toy_robot/types'
+require 'toy_robot/value_objects/table'
+require 'toy_robot/cli/repl'
+
+puts "#{ToyRobot::Cli::Constants::USAGE_BANNER_TEXT}\n"
+
+table = ToyRobot::ValueObjects::Table.new(length: ToyRobot::Constants::TABLE_LENGTH,
+                                width: ToyRobot::Constants::TABLE_WIDTH)
+simulator = ToyRobot::Simulator.new(robot: nil, table: table)
+
+input_handler = ToyRobot::Cli::InputHandler.new(simulator)
+
+
+ToyRobot::Cli::Repl.new(input_handler).start
