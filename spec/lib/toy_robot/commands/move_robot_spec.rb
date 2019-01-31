@@ -55,7 +55,7 @@ module ToyRobot
 
             it 'returns failure' do
               expect(execute)
-                .to be_a_failure_with_value('Moving NORTH will push robot out of table.')
+                .to be_a_failure_with_value('Moving NORTH will push robot out of table. Ignoring.')
             end
           end
         end
@@ -92,7 +92,7 @@ module ToyRobot
 
             it 'returns failure' do
               expect(execute)
-                .to be_a_failure_with_value('Moving EAST will push robot out of table.')
+                .to be_a_failure_with_value('Moving EAST will push robot out of table. Ignoring.')
             end
           end
         end
@@ -129,7 +129,7 @@ module ToyRobot
 
             it 'returns failure' do
               expect(execute)
-                .to be_a_failure_with_value('Moving SOUTH will push robot out of table.')
+                .to be_a_failure_with_value('Moving SOUTH will push robot out of table. Ignoring.')
             end
           end
         end
@@ -166,7 +166,7 @@ module ToyRobot
 
             it 'returns failure' do
               expect(execute)
-                .to be_a_failure_with_value('Moving WEST will push robot out of table.')
+                .to be_a_failure_with_value('Moving WEST will push robot out of table. Ignoring.')
             end
           end
         end
