@@ -45,13 +45,12 @@ Run `bundle exec rake spec` to run the tests. It will generate code coverage int
 ## Assumptions
 
 * Assumed it's ok to convert the text entered by the user into uppercase
-* .
 
 ## Design Analysis
 
 ### Design Principles
 
-* Uses domain entities and value objects to represent the core entities it works with and use `dry-types` to enforce correct of the data it works with.
+* Uses domain entities and value objects to represent the core entities it works with and use `dry-types` to enforce correctness of the data it works with.
 * Use dependency inject where ever applicable.
 * Use builders to construct a `CommandDescriptor` so the `Simulator` can perform it's operation without worry about invalid commands. As long as it receives an instance of the `CommandDescriptor` it can be sure that it has a valid command.
 * Uses factories to construct domain entities which at the moment handles validation (with not so good error messages) and work as a translation layer between `JSON` object keys and domain entity attributes.
