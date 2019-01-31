@@ -35,8 +35,8 @@ module ToyRobot
           Dry::Monads::Success(ValueObjects::Position.new(x: x_axis_value, y: y_axis_value))
         rescue Dry::Struct::Error => _exception
           invalid_range_error_message = 'Please enter valid co-ordinates. ' \
-            "Valid Range of co-ordinate values are: For X: '0-#{Constants::TABLE_WIDTH-1}' " \
-            "For Y: '0-#{Constants::TABLE_LENGTH - 1}'"
+            "Valid Range of co-ordinate values are: For X: '0-#{ToyRobot::Constants::TABLE_WIDTH-1}' " \
+            "For Y: '0-#{ToyRobot::Constants::TABLE_LENGTH - 1}'"
           Dry::Monads::Failure(invalid_range_error_message)
         rescue ArgumentError
           Dry::Monads::Failure('Please enter valid co-ordinates. Only integers are valid.')
