@@ -2,6 +2,7 @@
 
 require 'dry-struct'
 require 'toy_robot/types'
+require 'toy_robot/value_objects/place_command_argument'
 
 module ToyRobot
   module ValueObjects
