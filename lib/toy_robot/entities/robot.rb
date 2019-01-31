@@ -11,7 +11,7 @@ module ToyRobot
       attribute :face, Types::Directions
 
       def report
-        puts "#{position.x},#{position.y},#{face}"
+        "#{position.x},#{position.y},#{face}"
       end
     end
   end
