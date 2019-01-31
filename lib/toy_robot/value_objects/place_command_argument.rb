@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require 'dry-types'
 require 'toy_robot/types'
+require 'dry-struct'
+require 'toy_robot/value_objects/position'
 
 module ToyRobot
   module ValueObjects
