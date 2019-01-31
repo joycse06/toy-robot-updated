@@ -2,6 +2,7 @@
 
 require 'dry-struct'
 require 'toy_robot/types'
+require 'toy_robot/value_objects/position'
 
 module ToyRobot
   module Entities
