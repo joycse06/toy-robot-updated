@@ -6,7 +6,7 @@ require 'toy_robot/types'
 module ToyRobot
   module ValueObjects
     class CommandDescriptor < ::Dry::Struct::Value
-      attribute :command, Types::CommandIdentifiers
+      attribute :identifier, Types::CommandIdentifiers
       attribute :argument, ValueObjects::PlaceCommandArgument.optional
     end
   end
