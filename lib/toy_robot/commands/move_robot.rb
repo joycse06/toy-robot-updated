@@ -14,7 +14,10 @@ module ToyRobot
 
       def execute
         if invalid_move?
-          return Dry::Monads::Failure("Moving #{robot.face} will push robot out of table. Ignoring.")
+          robot_position = robot.position
+          error_message = "Moving #{robot.face} from (#{robot_position.x},#{robot_position.y}) " \
+            'will push robot out of table. Ignoring.'
+          return Dry::Monads::Failure(error_message)
         end
 
         Dry::Monads::Success(updated_robot)

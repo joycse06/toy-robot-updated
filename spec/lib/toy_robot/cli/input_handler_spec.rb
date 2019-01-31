@@ -104,7 +104,7 @@ module ToyRobot
 
             it 'displays error message if asked to move further' do
               expect { input_handler.handle_input('MOVE') }
-                .to output(/Moving NORTH will push robot out of table./).to_stdout
+                .to output("Moving NORTH from (0,4) will push robot out of table. Ignoring.\n").to_stdout
             end
           end
         end
