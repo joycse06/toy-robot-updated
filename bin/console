@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'pathname'
+require 'pry'
+
+# Add lib to ruby load path
+lib = File.expand_path('../../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
+
+require 'toy_robot'
+require 'toy_robot/types'
+require 'toy_robot/value_objects/position'
+require 'toy_robot/value_objects/table'
+require 'toy_robot/entities/robot'
+require 'toy_robot/value_objects/place_command_argument'
+require 'toy_robot/value_objects/command_descriptor'
+require 'toy_robot/cli/input_handler'
+
+
+robot = ToyRobot::Entities::Robot.new(
+  face: 'WEST',
+  position: ToyRobot::ValueObjects::Position.new(x: 1, y: 2)
+)
+
+position = ToyRobot::ValueObjects::Position.new(x: 3, y: 4)
+place_command_argument = ToyRobot::ValueObjects::PlaceCommandArgument.new(
+  position: position,
+  face: 'EAST'
+)
+
+command_descriptor = ToyRobot::ValueObjects::CommandDescriptor.new(
+  identifier: 'PLACE',
+  argument: place_command_argument
+)
+
+another_command = ToyRobot::ValueObjects::CommandDescriptor.new(
+  identifier: 'REPORT',
+  argument: nil
+)
+
+table = ToyRobot::ValueObjects::Table.new(length: ToyRobot::Constants::TABLE_LENGTH,
+                                width: ToyRobot::Constants::TABLE_WIDTH)
+simulator = ToyRobot::Simulator.new(robot: nil, table: table)
+
+input_handler = ToyRobot::Cli::InputHandler.new(simulator)
+
+binding.pry

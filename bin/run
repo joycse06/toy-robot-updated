@@ -13,14 +13,24 @@ require 'toy_robot'
 require 'toy_robot/types'
 require 'toy_robot/value_objects/table'
 require 'toy_robot/cli/repl'
+require 'toy_robot/cli/commands_file_interpreter'
 
-puts "#{ToyRobot::Cli::Constants::USAGE_BANNER_TEXT}\n"
+commands_file_path = Pathname.new(ENV.fetch('INPUT_FILE', ''))
 
+# initialize simulator
 table = ToyRobot::ValueObjects::Table.new(length: ToyRobot::Constants::TABLE_LENGTH,
-                                width: ToyRobot::Constants::TABLE_WIDTH)
+                                          width: ToyRobot::Constants::TABLE_WIDTH)
 simulator = ToyRobot::Simulator.new(robot: nil, table: table)
 
-input_handler = ToyRobot::Cli::InputHandler.new(simulator)
+if !commands_file_path.empty? && commands_file_path.file?
+ ToyRobot::Cli::CommandsFileInterpreter.new(commands_file_path, simulator).interpret
+else
+  if !commands_file_path.empty?
+   # user entered a file path but it doesn't exit
+   puts "The file path you entered does not exit, loading the repl.\n"
+  end
 
-
-ToyRobot::Cli::Repl.new(input_handler).start
+  puts "#{ToyRobot::Cli::Constants::USAGE_BANNER_TEXT}\n"
+  input_handler = ToyRobot::Cli::InputHandler.new(simulator)
+  ToyRobot::Cli::Repl.new(input_handler).start
+end

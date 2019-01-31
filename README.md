@@ -30,6 +30,14 @@ Install `ruby` following the installation instruction above. Then run `bin/setup
 
 Once the dependencies has been installed, run `bin/run` to start the `REPL` and then follow the instructions.
 
+### Experimental commands file inerpretation
+
+Have started working on an experimental commands file interpretation (beware it's not fully tested!). It can be used like `INPUT_FILE=/path/to/commands/file bin/run`. It will interpret the file line by line if it exists and will fall back to the REPL if it does not.
+
+The project includes an example command file at `spec/fixtures/commands.txt` which can be used like `INPUT_FILE=./spec/fixtures/commands.txt bin/run`
+
+Enjoy!
+
 ## Development
 
 Run `bundle exec rake spec` to run the tests. It will generate code coverage into the `coverage` directory. You can also run `bin/console` and it will instantiate few useful objects and drop you on a `pry` console. Convenient for experimenting.
@@ -59,6 +67,7 @@ Run `bundle exec rake spec` to run the tests. It will generate code coverage int
 * Would have spent a bit more time thinking about edge cases and had written more specs if the app was not handling any of those cases
 * Though about if I should move `Entities::Robot` into `ValueObjects` namespace. Though it feels like it's an entity, It's being used as an immutable value object.
 * Would have introduced a `Sum` type for the return value of the `CommandInterpreter`, something along the line of `CommandInterpreterResult = Entities::Robot | Types::Strict::String` so it could either return an updated robot or some output to return to the user (for `REPORT` command) and simulator could do the right thing based on that. (and it won't have to pry into the `command_identifier` itself, which I think is not it's responsibility).
+* Would have tested the `CommandFileInterpreter` more, DRY-ed up file interpreter and `REPL` (they have a fair bit of duplication)
 
 ## License
 
