@@ -52,8 +52,7 @@ Run `bundle exec rake spec` to run the tests. It will generate code coverage int
 
 * Uses domain entities and value objects to represent the core entities it works with and use `dry-types` to enforce correctness of the data it works with.
 * Use dependency inject where ever applicable.
-* Use builders to construct a `CommandDescriptor` so the `Simulator` can perform it's operation without worry about invalid commands. As long as it receives an instance of the `CommandDescriptor` it can be sure that it has a valid command.
-* Uses factories to construct domain entities which at the moment handles validation (with not so good error messages) and work as a translation layer between `JSON` object keys and domain entity attributes.
+* Use builders to construct a `CommandDescriptor` so the `Simulator` can perform it's operation without worrying about invalid commands. As long as it receives an instance of the `CommandDescriptor` it can be sure that it has a valid command.
 * Tries to follow `SRP` (Single Responsibility Principle) but couldn't spend enough time looking back at them after finishing it. Sometimes looking at a complete solution gives opportunities to find out modelling/design problems easily.
 * Tries to use `Result` types to represent errors rather than using `exception for control flow` or passing around nils when a recoverable error occurs.
 * Tries to use `CLI` as a delivery mechanism while striving to make the core of the `app` reusable with other delivery mechanisms easily (e.g. web).
