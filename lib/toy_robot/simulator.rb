@@ -7,7 +7,7 @@ require 'toy_robot/command_interpreter'
 
 module ToyRobot
   class Simulator
-    def initialize(robot:, table: table)
+    def initialize(robot:, table:)
       @robot = robot
       @table = table
     end
