@@ -1,5 +1,5 @@
 # Toy Robot
-**Toy Robot** is a Ruby `CLI` app that let users simulate movement of a Toy Robot on a 5X5 tabletop.
+**Toy Robot** is a Ruby `CLI` app that let users simulate the movement of a Toy Robot on a 5X5 tabletop.
 
 # Problem Definition
 The problem definition can be found at [PROBLEM.md](PROBLEM.md)
@@ -26,11 +26,11 @@ Use your operating systems manual or search on `google` on how to install a spec
 
 ## Usage
 
-Install `ruby` following the installation instruction above. Then run `bin/setup` from the root of the project to setup the project (installing required gems).
+Install `ruby` following the installation instruction above. Then run `bin/setup` from the root of the project to set up the project (installing required gems).
 
-Once the dependencies has been installed, run `bin/run` to start the `REPL` and then follow the instructions.
+Once the dependencies have been installed, run `bin/run` to start the `REPL` and then follow the instructions.
 
-### Experimental commands file inerpretation
+### Experimental commands file interpretation
 
 Have started working on an experimental commands file interpretation (beware it's not fully tested!). It can be used like `INPUT_FILE=/path/to/commands/file bin/run`. It will interpret the file line by line if it exists and will fall back to the REPL if it does not.
 
@@ -55,7 +55,7 @@ Run `bundle exec rake spec` to run the tests. It will generate code coverage int
 * Use dependency inject where ever applicable.
 * Use builders to construct a `CommandDescriptor` so the `Simulator` can perform it's operation without worry about invalid commands. As long as it receives an instance of the `CommandDescriptor` it can be sure that it has a valid command.
 * Uses factories to construct domain entities which at the moment handles validation (with not so good error messages) and work as a translation layer between `JSON` object keys and domain entity attributes.
-* Tries to follow `SRP` (Single Responsibility Principle) but couldn't spend enough time looking back at them after finishing it. Sometimes looking at a complete solution gives opportunities to find out modeling/design problems easily.
+* Tries to follow `SRP` (Single Responsibility Principle) but couldn't spend enough time looking back at them after finishing it. Sometimes looking at a complete solution gives opportunities to find out modelling/design problems easily.
 * Tries to use `Result` types to represent errors rather than using `exception for control flow` or passing around nils when a recoverable error occurs.
 * Tries to use `CLI` as a delivery mechanism while striving to make the core of the `app` reusable with other delivery mechanisms easily (e.g. web).
 
