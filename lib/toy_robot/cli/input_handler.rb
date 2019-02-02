@@ -10,13 +10,9 @@ module ToyRobot
     class InputHandler
       def initialize(simulator)
         @simulator = simulator
-
-        puts Constants::INTRO_TEXT
       end
 
       def handle_input(input)
-        Kernel.exit if input.casecmp(Constants::QUIT_COMMAND_TEXT).zero?
-
         process_input_result = process_input_result(input.upcase)
 
         Dry::Matcher::ResultMatcher.call(process_input_result) do |matcher|

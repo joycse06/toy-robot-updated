@@ -8,18 +8,23 @@ module ToyRobot
     class Repl
       def initialize(input_handler)
         @input_handler = input_handler
+
+        puts Constants::INTRO_TEXT
       end
 
       def start
         while (line = Readline.readline('> ', true))
           input = line.strip.upcase
+
+          Kernel.exit if input.casecmp(Constants::QUIT_COMMAND_TEXT).zero?
+
           input_handler.handle_input(input)
         end
       rescue Interrupt
         puts 'Ctrl-C interrupt detected. Exiting. Thanks for using Toy Robot Simulation.'
-        exit
+        Kernel.exit
       rescue => exception
-        puts "Something Went Wrong. Error Message: #{exception.message}. Backtrace:"
+        puts "Something went wrong. Error Message: #{exception.message}. Backtrace:"
         puts exception.backtrace
         Kernel.exit(1)
       end
