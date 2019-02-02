@@ -45,15 +45,19 @@ Run `bundle exec rspec` to run the tests. It will generate code coverage into th
 ## Assumptions
 
 * Assumed it's ok to convert the text entered by the user into uppercase
+* Assumed there's no restriction on usage of any specific paradigm or set of gems. Chose to use
+  few gems from `dry-rb` which I wouldn't usually do without discussing with the team. Assumed this is
+  either a solo project or my team members have moderate level of understanding of how the `Result` type
+  works (and usage of `bind` from `dry-monad` gem).
 
 ## Design Analysis
 
 ### Design Principles
 
-* Uses domain entities and value objects to represent the core entities it works with and use `dry-types` to enforce correctness of the data it works with.
-* Use dependency inject where ever applicable.
+* Uses domain entities and value objects to represent the core entities it works with and use `dry-types` to enforce correctness of the data.
+* Use *dependency injection* where applicable.
 * Use builders to construct a `CommandDescriptor` so the `Simulator` can perform it's operation without worrying about invalid commands. As long as it receives an instance of the `CommandDescriptor` it can be sure that it has a valid command.
-* Tries to follow `SRP` (Single Responsibility Principle) but couldn't spend enough time looking back at them after finishing it. Sometimes looking at a complete solution gives opportunities to find out modelling/design problems easily.
+* Tries to follow `SRP` (Single Responsibility Principle) but couldn't spend enough time looking back at them after finishing it. Sometimes looking at a complete solution gives opportunities to find out modelling/design problems.
 * Tries to use `Result` types to represent errors rather than using `exception for control flow` or passing around nils when a recoverable error occurs.
 * Tries to use `CLI` as a delivery mechanism while striving to make the core of the `app` reusable with other delivery mechanisms easily (e.g. web).
 
