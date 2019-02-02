@@ -15,19 +15,7 @@ module ToyRobot
                                           width: ToyRobot::Constants::TABLE_WIDTH)
       end
 
-      describe '#initialize' do
-        it 'prints intro message on initialization' do
-          expect { input_handler }.to output(Constants::INTRO_TEXT).to_stdout
-        end
-      end
-
       describe '#handle_input' do
-        it "exits on 'quit'" do
-          expect(Kernel).to receive(:exit)
-
-          input_handler.handle_input('quit')
-        end
-
         context 'when robot is not placed yet' do
           before do
             input_handler # print output outside of assertion

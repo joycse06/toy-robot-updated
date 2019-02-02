@@ -30,17 +30,17 @@ Install `ruby` following the installation instruction above. Then run `bin/setup
 
 Once the dependencies have been installed, run `bin/run` to start the `REPL` and then follow the instructions.
 
-### Experimental commands file interpretation
+### Interpreting Commands From File
 
-Have started working on an experimental commands file interpretation (beware it's not fully tested!). It can be used like `INPUT_FILE=/path/to/commands/file bin/run`. It will interpret the file line by line if it exists and will fall back to the REPL if it does not.
+The program also supports interpreting commands from a file for convenience. Create a file with one command per line then run it like `INPUT_FILE=/path/to/commands/file bin/run`. It will interpret the file line by line if it exists and will fall back to the `REPL` if it does not.
 
-The project includes an example command file at `spec/fixtures/commands.txt` which can be used like `INPUT_FILE=./spec/fixtures/commands.txt bin/run`
+The project includes example command files at `spec/fixtures` which can be used like `INPUT_FILE=./spec/fixtures/commands_file_with_all_valid_commands.txt bin/run` from the root of the project.
 
 Enjoy!
 
 ## Development
 
-Run `bundle exec rake spec` to run the tests. It will generate code coverage into the `coverage` directory. You can also run `bin/console` and it will instantiate few useful objects and drop you on a `pry` console. Convenient for experimenting.
+Run `bundle exec rspec` to run the tests. It will generate code coverage into the `coverage` directory. You can also run `bin/console` and it will instantiate few useful objects and drop you on a `pry` console. Convenient for experimenting.
 
 ## Assumptions
 

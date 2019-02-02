@@ -21,9 +21,10 @@ commands_file_path = Pathname.new(ENV.fetch('INPUT_FILE', ''))
 table = ToyRobot::ValueObjects::Table.new(length: ToyRobot::Constants::TABLE_LENGTH,
                                           width: ToyRobot::Constants::TABLE_WIDTH)
 simulator = ToyRobot::Simulator.new(robot: nil, table: table)
+input_handler = ToyRobot::Cli::InputHandler.new(simulator)
 
 if !commands_file_path.empty? && commands_file_path.file?
- ToyRobot::Cli::CommandsFileInterpreter.new(commands_file_path, simulator).interpret
+ ToyRobot::Cli::CommandsFileInterpreter.new(commands_file_path, input_handler).interpret
 else
   if !commands_file_path.empty?
    # user entered a file path but it doesn't exit
@@ -31,6 +32,5 @@ else
   end
 
   puts "#{ToyRobot::Cli::Constants::USAGE_BANNER_TEXT}\n"
-  input_handler = ToyRobot::Cli::InputHandler.new(simulator)
   ToyRobot::Cli::Repl.new(input_handler).start
 end
