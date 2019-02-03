@@ -13,8 +13,8 @@ module ToyRobot
         end
 
         def build
-          if num_of_arguments != 3
-            return Dry::Monads::Failure("Wrong number of arguments passed to PLACE command. Input Args: '#{raw_args}'. Please enter exactly 3 arguments like X,Y,DIRECTION")
+          if number_of_arguments != 3
+            return Dry::Monads::Failure("Wrong number of arguments passed to PLACE command. Input Args: '#{raw_args}'. Please enter exactly 3 arguments like X,Y,FACING")
           end
 
           build_position.bind do |position|
@@ -35,7 +35,7 @@ module ToyRobot
           Dry::Monads::Success(ValueObjects::Position.new(x: x_axis_value, y: y_axis_value))
         rescue Dry::Struct::Error => _exception
           invalid_range_error_message = 'Please enter valid co-ordinates. ' \
-            "Valid Range of co-ordinate values are: For X: '0-#{ToyRobot::Constants::TABLE_WIDTH-1}' " \
+            "Valid Range of co-ordinate values are: For X: '0-#{ToyRobot::Constants::TABLE_WIDTH - 1}' " \
             "For Y: '0-#{ToyRobot::Constants::TABLE_LENGTH - 1}'"
           Dry::Monads::Failure(invalid_range_error_message)
         rescue ArgumentError
@@ -57,7 +57,7 @@ module ToyRobot
           Integer(argument_parts[1])
         end
 
-        def num_of_arguments
+        def number_of_arguments
           argument_parts.size
         end
 
