@@ -18,7 +18,7 @@ module ToyRobot
           let(:turn_identifier) { 'UNKNOWN' }
 
           it 'returns a failure' do
-            expect(execute).to be_a_failure_with_value('Unknown Direction: UNKNOWN')
+            expect(execute).to be_a_failure_with_value('Unknown Turn Command: UNKNOWN')
           end
         end
 

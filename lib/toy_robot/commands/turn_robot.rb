@@ -18,7 +18,7 @@ module ToyRobot
         when Types::TurnIdentifiers['RIGHT']
           new_face = next_clockwise_direction
         else
-          return Dry::Monads::Failure("Unknown Direction: #{turn_identifier}")
+          return Dry::Monads::Failure("Unknown Turn Command: #{turn_identifier}")
         end
 
         Dry::Monads::Success(updated_robot(new_face))
