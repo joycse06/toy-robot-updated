@@ -96,7 +96,7 @@ module ToyRobot
 
             it 'displays error message' do
               expect { input_handler.handle_input('MOVE THERE') }
-                .to output("Command: 'MOVE' does not take argument(s).\n").to_stdout
+                .to output("Command 'MOVE' does not take any argument(s).\n").to_stdout
             end
 
             context 'when error message has been displayed' do

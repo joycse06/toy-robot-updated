@@ -40,7 +40,7 @@ module ToyRobot
           when Types::CommandIdentifiers['PLACE']
             build_place_argument
           else
-            return Dry::Monads::Failure("Command: '#{command_identifier}' does not take argument(s).") if command_with_argument?
+            return Dry::Monads::Failure("Command '#{command_identifier}' does not take any argument(s).") if command_with_argument?
             Dry::Monads::Success(nil)
           end
         end

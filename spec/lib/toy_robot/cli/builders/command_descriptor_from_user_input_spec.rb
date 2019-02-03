@@ -84,7 +84,7 @@ module ToyRobot
 
                   it 'returns a failure', :aggregate_failures do
                     expect(build)
-                      .to be_a_failure_with_value("Command: 'MOVE' does not take argument(s).")
+                      .to be_a_failure_with_value("Command 'MOVE' does not take any argument(s).")
                   end
                 end
               end
