@@ -19,7 +19,7 @@ module ToyRobot
     let(:command_descriptor) do
       instance_double(ValueObjects::CommandDescriptor,
                       identifier: command_identifier,
-                      argument: command_argument )
+                      argument: command_argument)
     end
     let(:command_argument) do
       instance_double(ValueObjects::PlaceCommandArgument, position: position, face: face)

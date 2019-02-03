@@ -47,7 +47,7 @@ module ToyRobot
               let(:face) { Types::Directions['WEST'] }
               let(:new_face) { Types::Directions['NORTH'] }
 
-              it 'rotates in the list and returns start direction' do
+              it 'rotates and returns start direction' do
                 expect(execute).to be_a_success_with_value(updated_robot)
               end
             end
@@ -76,7 +76,7 @@ module ToyRobot
               let(:face) { Types::Directions['NORTH'] }
               let(:new_face) { Types::Directions['WEST'] }
 
-              it 'rotates in the list and returns start direction' do
+              it 'rotates and returns start direction' do
                 expect(execute).to be_a_success_with_value(updated_robot)
               end
             end
