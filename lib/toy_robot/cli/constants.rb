@@ -13,7 +13,7 @@ module ToyRobot
         | This program let the user simulate a robot's movement on top of a |
         | 5X5 Table (grid).                                                 |
         | Valid commands are:                                               |
-        | PLACE X,Y,F                                                       |
+        | PLACE X,Y,FACING                                                  |
         | MOVE                                                              |
         | LEFT                                                              |
         | RIGHT                                                             |

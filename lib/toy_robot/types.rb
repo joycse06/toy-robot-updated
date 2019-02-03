@@ -25,7 +25,7 @@ module ToyRobot
 
     TurnIdentifiers = Types::Strict::String.enum('RIGHT', 'LEFT')
 
-    # valid axis values values 0..TABLE_LENGTH{X,Y}
+    # valid axis values values 0..TABLE_{LENGTH,WIDTH} - 1
     XAxisValue = Types::Strict::Integer
       .constrained(gteq: 0, lt: Constants::TABLE_WIDTH)
     YAxisValue = Types::Strict::Integer
