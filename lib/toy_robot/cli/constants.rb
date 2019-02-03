@@ -4,7 +4,7 @@ module ToyRobot
   module Cli
     module Constants
       INTRO_TEXT = <<~TEXT
-        Welcome to Toy Robot Simulation. Place the robot into the grid and start
+        Welcome to Toy Robot Simulation. Place the robot into the table and start
         moving it around. Enjoy!
       TEXT
       QUIT_COMMAND_TEXT = 'quit'
